@@ -1,0 +1,12 @@
+@model Gorev
+
+<p>
+    <b>
+        @Model.Aciklama 
+    </b> Bu Görevi silmek istediginizden eminmisiniz.
+    <form asp-action="Delete" method="post">
+        <input type="hidden" name="id" value="@Model.GorevId" />
+       <button type="submit" asp-action="Delete" class="btn btn-danger">Evet</button>
+       <a asp-action="Index" class="btn btn-primary">Hayır</a>
+    </form>
+</p>

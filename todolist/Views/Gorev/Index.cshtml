@@ -1,0 +1,50 @@
+@model IEnumerable<Gorev>
+    <h2>Görev Listesi</h2>
+    <hr />
+    <a href="/Gorev/Create" class="btn btn-primary">Görev Ekle</a>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>@Html.DisplayNameFor(m => m.GorevId)</th>
+                <th>@Html.DisplayNameFor(m => m.Aciklama)</th>
+                <th>Görev Durumu</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.GorevId)</td>
+                <td>@Html.DisplayFor(modelItem => item.Aciklama)</td>
+                <td style="color: @(item.GorevDurum == 0 ? " red" : "inherit" )">
+                    @if (item.GorevDurum == 1)
+                    {
+                    <span>Yapıldı</span>
+                    }
+                    else
+                    {
+                    <span>Yapılmadı</span>
+                    }
+                <td>
+                    @if (item.GorevDurum == 1)
+                    {
+                    <a asp-asp-controller="Gorev" asp-action="Delete" asp-route-id="@item.GorevId"
+                        class="btn btn-sm btn-danger">Delete</a>
+                    }
+                    else
+                    {
+
+                    <button type="button" class="btn btn-sm btn-danger disabled" disabled>Delete</button>
+                    }
+                    <a asp-asp-controller="Gorev" asp-action="Edit" asp-route-id="@item.GorevId"
+                        class="btn btn-sm btn-primary">Edit</a>
+                </td>
+                </td>
+
+            </tr>
+            }
+
+        </tbody>
+    </table>

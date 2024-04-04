@@ -1,0 +1,17 @@
+@model Gorev
+<h2>Görev Oluşturma</h2>
+
+<form asp-controller="Gorev" asp-action="Create" method="post">
+    <div class="mb-3">
+        <label asp-for="Aciklama" class="form-label">Yapılacak</label>
+        <input asp-for="Aciklama" class="form-control">
+    </div>
+    <div class="mb-3">
+        <label asp-for="GorevDurum" class="form-label">Görev Durumu</label>
+        <select asp-for="GorevDurum" class="form-control">
+            <option value="1">Yapıldı</option>
+            <option value="0">Yapılmadı</option>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-secondary">Kaydet</button>
+</form> 

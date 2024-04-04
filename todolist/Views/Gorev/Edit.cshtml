@@ -1,0 +1,25 @@
+@model Gorev
+<h2>Görev Düzeni</h2>
+<hr />
+<div class="row">
+
+
+    <div class="col-8">
+        <form asp-controller="Gorev" asp-action="Edit" method="post">
+            <input type="hidden" asp-for="GorevId">
+            <div class="mb-3">
+                <label asp-for="Aciklama" class="form-label">Açıklama</label>
+                <input asp-for="Aciklama" class="form-control" />
+            </div>
+            <div class="mb-3">
+                <label asp-for="GorevDurum" class="form-label">Görev Durumu</label>
+                <select asp-for="GorevDurum" class="form-control">
+                    <option value="1">Yapıldı</option>
+                    <option value="0">Yapılmadı</option>
+                </select>
+            </div>
+
+            <button type="submit" class="btn btn-secondary">Kaydet</button>
+
+
+        </form>
